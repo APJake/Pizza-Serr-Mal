@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.apjake.pizzaserrmal.common.util.SingleLiveEvent
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.Disposable
 
 abstract class BaseViewModel<E> : ViewModel() {
     private val _event = SingleLiveEvent<E>()
@@ -13,6 +14,8 @@ abstract class BaseViewModel<E> : ViewModel() {
     fun emit(event: E) {
         _event.value = event
     }
+
+
 
     override fun onCleared() {
         super.onCleared()
