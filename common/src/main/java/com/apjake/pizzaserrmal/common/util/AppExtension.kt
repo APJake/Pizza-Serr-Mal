@@ -5,7 +5,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.compose.common.R
 
-fun String.prefixDollar () : String = "$ $this"
+fun String.prefixDollar(): String = "$ $this"
 
 fun ImageView.show(imageUrl: String) {
     Glide.with(this)
@@ -17,3 +17,5 @@ fun ImageView.show(imageUrl: String) {
         )
         .into(this)
 }
+
+fun Boolean?.orFalse(): Boolean = this ?: false
