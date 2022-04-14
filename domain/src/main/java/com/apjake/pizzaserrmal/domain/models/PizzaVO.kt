@@ -7,5 +7,6 @@ data class PizzaVO(
     val description: String,
     val image: String,
     val price: String,
-    val isBookmark: Boolean
+    val isBookmark: Boolean,
+    val range : PizzaPrizeRange
 )
