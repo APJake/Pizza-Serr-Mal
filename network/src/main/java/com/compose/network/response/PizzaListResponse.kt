@@ -1,0 +1,2 @@
+
+class PizzaListResponse : ArrayList<Pizza>()
