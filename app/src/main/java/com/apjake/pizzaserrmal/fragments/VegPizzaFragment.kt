@@ -10,6 +10,7 @@ import com.apjake.pizzaserrmal.databinding.FragmentVegPizzaBinding
 import com.apjake.pizzaserrmal.mvvm.event.PizzaListEvent
 import com.apjake.pizzaserrmal.mvvm.viewmodel.PizzaViewModel
 import com.apjake.pizzaserrmal.common.base.BaseFragment
+import com.apjake.pizzaserrmal.mvvm.state.PizzaState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,7 +24,13 @@ class VegPizzaFragment : BaseFragment<PizzaViewModel, PizzaListEvent>() {
         super.onViewCreated(view, savedInstanceState)
         adapter = PizzaListAdapter(requireContext())
         binding.rvVegPizza.adapter = adapter
+        viewModel.getPizzaList()
+        viewModel.pizzaLisState.observe(viewLifecycleOwner) {
+            when (it) {
+                is PizzaState.Success -> adapter.setNewDataList(it.item)
+            }
 
+        }
     }
 
     override fun onCreateView(

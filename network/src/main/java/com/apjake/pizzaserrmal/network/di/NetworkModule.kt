@@ -19,7 +19,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface NetworkModule {
+abstract class NetworkModule {
 
     @Module
     @InstallIn(SingletonComponent::class)
@@ -46,5 +46,6 @@ interface NetworkModule {
     }
 
     @Binds
-    fun bindPizzaNetworkDataSource(dataSource: PizzaNetworkDataSourceImpl): PizzaNetworkDataSource
+    @Singleton
+    abstract fun bindPizzaNetworkDataSource(dataSource: PizzaNetworkDataSourceImpl): PizzaNetworkDataSource
 }
