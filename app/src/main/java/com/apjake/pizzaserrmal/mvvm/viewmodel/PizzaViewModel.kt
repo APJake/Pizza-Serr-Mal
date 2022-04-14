@@ -11,6 +11,7 @@ import com.apjake.pizzaserrmal.network.datasource.PizzaNetworkDataSourceImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Scheduler
+import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
@@ -26,8 +27,9 @@ class PizzaViewModel @Inject constructor(
         pizzaNetworkDataSource.getPizzaList()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
-                _pizzaListState.value = PizzaState.Success(it)
-            }
+            .subscribe({ _pizzaListState.value = PizzaState.Success(it) }, {
+                emit(PizzaListEvent.Error(it.message.orEmpty()))
+            })
+            .addTo(dispose)
     }
 }
