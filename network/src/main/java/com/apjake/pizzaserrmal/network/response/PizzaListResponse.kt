@@ -1,3 +1,3 @@
-import com.apjake.pizzaserrmal.domain.Pizza
+import com.apjake.pizzaserrmal.network.response.Pizza
 
 class PizzaListResponse : ArrayList<Pizza>()

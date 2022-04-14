@@ -1,4 +1,4 @@
-package com.apjake.pizzaserrmal.domain
+package com.apjake.pizzaserrmal.network.response
 
 data class Pizza(
     val id: Int,
