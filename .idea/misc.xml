@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../Library/Android/sdk/ndk/21.1.6352462/caches/transforms-3/356e9ba54d02d4f62b341e20ec0fc392/transformed/jetified-appcompat-resources-1.4.1/res/drawable/abc_vector_test.xml" value="0.202" />
+        <entry key="app/src/main/res/layout/fragment_veg_pizza.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/item_view_pizza.xml" value="0.375" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
