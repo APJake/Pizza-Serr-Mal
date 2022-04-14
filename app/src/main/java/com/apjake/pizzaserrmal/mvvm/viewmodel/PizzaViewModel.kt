@@ -6,6 +6,7 @@ import com.apjake.pizzaserrmal.appdata.PizzaNetworkDataSource
 
 import com.apjake.pizzaserrmal.mvvm.event.PizzaListEvent
 import com.apjake.pizzaserrmal.common.base.BaseViewModel
+import com.apjake.pizzaserrmal.domain.models.usecase.GetVegPizzaListUseCase
 import com.apjake.pizzaserrmal.mvvm.state.PizzaState
 import com.apjake.pizzaserrmal.network.datasource.PizzaNetworkDataSourceImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,14 +18,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PizzaViewModel @Inject constructor(
-    private val pizzaNetworkDataSource: PizzaNetworkDataSourceImpl
+    private val getVegPizzaListUseCase: GetVegPizzaListUseCase
 ) : BaseViewModel<PizzaListEvent>() {
 
     private val _pizzaListState = MutableLiveData<PizzaState>()
     val pizzaLisState: LiveData<PizzaState> = _pizzaListState
 
     fun getPizzaList() {
-        pizzaNetworkDataSource.getPizzaList()
+        getVegPizzaListUseCase()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ _pizzaListState.value = PizzaState.Success(it) }, {
