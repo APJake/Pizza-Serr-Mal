@@ -9,17 +9,48 @@
     >
 
     <TextView
-        android:id="@+id/tvDesc"
+        android:id="@+id/tvPizzaName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="54dp"
+        android:text="Pizza Title"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="this is a description"
         android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPizzaName"
+        />
 
+    <TextView
+        android:id="@+id/tvVeg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Vegetarian"
+        android:background="@drawable/radio_flat_selected"
+        android:textColor="@color/white"
+        android:paddingVertical="3dp"
+        android:paddingHorizontal="10dp"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDesc"
         />
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -28,7 +59,7 @@
         android:layout_height="@dimen/dimen_pizza_image_detail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDesc"
+        app:layout_constraintTop_toBottomOf="@id/tvVeg"
         app:shapeAppearance="@style/RoundedImageShape"
         android:layout_marginTop="54dp"
         tools:src="@tools:sample/avatars" />
@@ -50,47 +81,83 @@
 
         <RadioButton
             android:id="@+id/rbSmall"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:gravity="center"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:background="@drawable/radio_flat_selector"
             android:button="@android:color/transparent"
             android:checked="true"
-            android:paddingLeft="16dp"
-            android:paddingTop="3dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="3dp"
-            android:text="Daily"
+            android:layout_marginHorizontal="7dp"
+            android:text="S"
             android:textColor="@color/radio_flat_text_selector" />
 
         <RadioButton
             android:id="@+id/rbMedium"
             android:gravity="center"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
             android:background="@drawable/radio_flat_selector"
             android:button="@android:color/transparent"
-            android:paddingLeft="16dp"
-            android:paddingTop="3dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="3dp"
-            android:text="Weekly"
+            android:layout_marginHorizontal="7dp"
+            android:text="M"
             android:textColor="@color/radio_flat_text_selector" />
 
         <RadioButton
             android:id="@+id/rbLarge"
             android:gravity="center"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
             android:background="@drawable/radio_flat_selector"
             android:button="@android:color/transparent"
-            android:paddingLeft="16dp"
-            android:paddingTop="3dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="3dp"
-            android:text="Weekly"
+            android:layout_marginHorizontal="7dp"
+            android:text="L"
             android:textColor="@color/radio_flat_text_selector" />
 
     </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/llPriceBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="42dp"
+        android:layout_marginLeft="42dp"
+        >
+
+        <TextView
+            android:id="@+id/tv_price_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Price:"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="$968"
+            android:textAlignment="textStart"
+            android:textSize="32sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/colorAccent"
+        android:background="@drawable/ic_favourite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/llPriceBox"
+        android:layout_marginEnd="42dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
