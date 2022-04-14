@@ -3,5 +3,5 @@ import retrofit2.http.GET
 
 interface PizzaApi {
     @GET("pizzas")
-    fun getAllPizza(): Observable<PizzaResponse>
+    fun getAllPizza(): Observable<List<PizzaResponse>>
 }
