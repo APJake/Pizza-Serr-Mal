@@ -8,6 +8,7 @@ import com.apjake.pizzaserrmal.network.response.Pizza
 class PizzaResponseMapper: UniMapper<PizzaListResponse,List<PizzaVO> > {
     override fun map(data: PizzaListResponse): List<PizzaVO> {
         return data.map { pizza -> PizzaVO(id = pizza.id.toString(), name = pizza.name, isVeg = pizza.veg,
-            description = pizza.description, image = pizza.img, price = pizza.img, isBookmark = false) }
+            description = pizza.description, image = pizza.img, price = pizza.img, isBookmark = false)
+        }
     }
 }
