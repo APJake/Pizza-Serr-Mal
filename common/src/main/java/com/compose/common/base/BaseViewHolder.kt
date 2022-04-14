@@ -9,7 +9,7 @@ class BaseViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
     val data: T
         get() = _data!!
 
-    open fun bind(item: T) {
+    fun bind(item: T) {
         _data = item
     }
 }
