@@ -15,7 +15,7 @@ class PizzaResponseMapper @Inject constructor() : UniMapper<List<PizzaResponse>?
                 isVeg = pizza.veg.orFalse(),
                 description = pizza.description.orEmpty(),
                 image = pizza.img.orEmpty(),
-                price = pizza.img.orEmpty(),
+                price = pizza.price?.or(0).toString(),
                 isBookmark = false
             )
         }.orEmpty()
