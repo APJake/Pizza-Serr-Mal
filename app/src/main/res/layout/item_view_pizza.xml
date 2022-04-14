@@ -12,6 +12,7 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivPizza"
+        android:scaleType="centerCrop"
         android:layout_width="@dimen/dimen_pizza_image"
         android:layout_height="@dimen/dimen_pizza_image"
         app:layout_constraintLeft_toLeftOf="parent"
