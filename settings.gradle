@@ -8,3 +8,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Pizza Serr Mal"
 include ':app'
+include ':common'
+include ':data'
+include ':domain'
