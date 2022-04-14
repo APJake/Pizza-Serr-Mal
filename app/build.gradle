@@ -68,5 +68,8 @@ dependencies {
 
     implementation project(':common')
     implementation project(':domain')
+    implementation project(':appData')
+    implementation project(':network')
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'androidx.hilt:hilt-navigation-fragment:1.0.0'
 }

@@ -1,10 +1,9 @@
 package com.apjake.pizzaserrmal.network.mapper
 
-import PizzaResponse
 import com.apjake.pizzaserrmal.common.util.UniMapper
 import com.apjake.pizzaserrmal.common.util.orFalse
 import com.apjake.pizzaserrmal.domain.models.PizzaVO
-import com.apjake.pizzaserrmal.network.response.Pizza
+import com.apjake.pizzaserrmal.network.response.PizzaResponse
 import javax.inject.Inject
 
 class PizzaResponseMapper @Inject constructor() : UniMapper<List<PizzaResponse>?, List<PizzaVO>> {

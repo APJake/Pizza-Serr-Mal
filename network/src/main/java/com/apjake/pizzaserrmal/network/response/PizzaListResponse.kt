@@ -1,5 +1,4 @@
-import com.apjake.pizzaserrmal.network.response.Pizza
-
+package com.apjake.pizzaserrmal.network.response
 
 data class PizzaResponse(
     val id: String?,
