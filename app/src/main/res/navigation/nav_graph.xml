@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
     app:startDestination="@id/vegPizzaFragment">
 
     <fragment
         android:id="@+id/vegPizzaFragment"
         android:name="com.apjake.pizzaserrmal.fragments.VegPizzaFragment"
-        android:label="VegPizzaFragment" />
+        android:label="VegPizzaFragment"
+        tools:layout="@layout/fragment_veg_pizza"
+        >
+        <action
+            android:id="@+id/action_vegPizzaFragment_to_pizzaDetailFragment"
+            app:destination="@id/pizzaDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pizzaDetailFragment"
+        android:name="com.apjake.pizzaserrmal.fragments.PizzaDetailFragment"
+        android:label="fragment_pizza_detail"
+        tools:layout="@layout/fragment_pizza_detail" />
 </navigation>
