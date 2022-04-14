@@ -8,16 +8,15 @@ import androidx.fragment.app.viewModels
 import com.apjake.pizzaserrmal.adapter.PizzaListAdapter
 import com.apjake.pizzaserrmal.databinding.FragmentVegPizzaBinding
 import com.apjake.pizzaserrmal.mvvm.event.PizzaListEvent
-import com.apjake.pizzaserrmal.mvvm.viewmodel.PizzaViewModel
+import com.apjake.pizzaserrmal.mvvm.viewmodel.VegPizzaViewModel
 import com.apjake.pizzaserrmal.common.base.BaseFragment
 import com.apjake.pizzaserrmal.mvvm.state.PizzaState
-import com.apjake.pizzaserrmal.mvvm.viewmodel.VegViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class VegPizzaFragment : BaseFragment<VegViewModel, PizzaListEvent>() {
+class VegPizzaFragment : BaseFragment<VegPizzaViewModel, PizzaListEvent>() {
 
-    private val viewModel: VegViewModel by viewModels()
+    private val viewModelVeg: VegPizzaViewModel by viewModels()
     private lateinit var adapter: PizzaListAdapter
     private lateinit var binding: FragmentVegPizzaBinding
 
@@ -25,8 +24,8 @@ class VegPizzaFragment : BaseFragment<VegViewModel, PizzaListEvent>() {
         super.onViewCreated(view, savedInstanceState)
         adapter = PizzaListAdapter(requireContext())
         binding.rvVegPizza.adapter = adapter
-        viewModel.getPizzaList()
-        viewModel.pizzaListState.observe(viewLifecycleOwner) {
+        viewModelVeg.getPizzaList()
+        viewModelVeg.pizzaLisState.observe(viewLifecycleOwner) {
             when (it) {
                 is PizzaState.Success -> adapter.setNewDataList(it.item)
             }
@@ -42,8 +41,7 @@ class VegPizzaFragment : BaseFragment<VegViewModel, PizzaListEvent>() {
         binding = FragmentVegPizzaBinding.inflate(inflater, container, false)
         return binding.root
     }
-
-    override fun injectViewModel(): VegViewModel = viewModel
+    override fun injectViewModel(): VegPizzaViewModel = viewModelVeg
 
     override fun bind(event: PizzaListEvent) {
         when (event) {

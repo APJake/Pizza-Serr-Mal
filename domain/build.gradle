@@ -10,12 +10,13 @@ java {
 }
 
 dependencies {
-    implementation "com.google.dagger:hilt-android:2.38.1"
-    kapt "com.google.dagger:hilt-compiler:2.38.1"
     implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
     implementation "com.google.dagger:hilt-android:2.38.1"
     kapt "com.google.dagger:hilt-compiler:2.38.1"
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c98736e1a0c2a82f2453c108a83a01b715d5cc75
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
 }
