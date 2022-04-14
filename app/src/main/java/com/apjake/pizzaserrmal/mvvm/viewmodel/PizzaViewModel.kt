@@ -23,6 +23,11 @@ class PizzaViewModel @Inject constructor(
     val pizzaLisState: LiveData<PizzaState> = _pizzaListState
 
     fun getPizzaList() {
-
+        pizzaNetworkDataSource.getPizzaList()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                _pizzaListState.value = PizzaState.Success(it)
+            }
     }
 }
