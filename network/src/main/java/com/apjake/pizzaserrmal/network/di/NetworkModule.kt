@@ -1,8 +1,11 @@
 package com.apjake.pizzaserrmal.network.di
 
 import android.content.Context
+import com.apjake.pizzaserrmal.appdata.PizzaNetworkDataSource
+import com.apjake.pizzaserrmal.network.datasource.PizzaNetworkDataSourceImpl
 import com.apjake.pizzaserrmal.network.service.PizzaApi
 import com.chuckerteam.chucker.api.ChuckerInterceptor
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,7 +43,10 @@ abstract class NetworkModule {
                     val request: Request =
                         chain.request().newBuilder()
                             .addHeader("X-RapidAPI-Host", "pizza-and-desserts.p.rapidapi.com")
-                        .addHeader("X-RapidAPI-Key", "50f4516edcmshdc7a5fad19e5b06p174665jsn43453f9bd0d5")
+                            .addHeader(
+                                "X-RapidAPI-Key",
+                                "23b553eff6msh5eb478a81adc259p190452jsn00fb7875d8d1"
+                            )
                             .build()
                     chain.proceed(request)
                 })
@@ -53,6 +59,11 @@ abstract class NetworkModule {
                 .build()
         }
     }
+
+    @Binds
+    @Singleton
+    abstract fun bindPizzaNetworkDataSource(pizzaNetworkDataSourceImpl: PizzaNetworkDataSourceImpl)
+            : PizzaNetworkDataSource
 
 
 }

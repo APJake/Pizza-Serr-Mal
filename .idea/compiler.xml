@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.7">
       <module name="Pizza_Serr_Mal.app" target="11" />
       <module name="Pizza_Serr_Mal.common" target="11" />
+      <module name="Pizza_Serr_Mal.domain" target="1.8" />
       <module name="Pizza_Serr_Mal.local" target="11" />
       <module name="Pizza_Serr_Mal.network" target="11" />
     </bytecodeTargetLevel>

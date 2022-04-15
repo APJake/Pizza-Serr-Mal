@@ -2,6 +2,7 @@ package com.apjake.pizzaserrmal.network.mapper
 
 import com.apjake.pizzaserrmal.common.util.UniMapper
 import com.apjake.pizzaserrmal.common.util.orFalse
+import com.apjake.pizzaserrmal.domain.models.PizzaPrizeRange
 import com.apjake.pizzaserrmal.domain.models.PizzaVO
 import com.apjake.pizzaserrmal.network.response.PizzaResponse
 import javax.inject.Inject
@@ -16,7 +17,8 @@ class PizzaResponseMapper @Inject constructor() : UniMapper<List<PizzaResponse>?
                 description = pizza.description.orEmpty(),
                 image = pizza.img.orEmpty(),
                 price = pizza.price.toString(),
-                isBookmark = false
+                isBookmark = false,
+                range = PizzaPrizeRange.CHEAP
             )
         }.orEmpty()
     }

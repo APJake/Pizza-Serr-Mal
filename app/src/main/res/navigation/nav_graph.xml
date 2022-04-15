@@ -20,4 +20,9 @@
         android:name="com.apjake.pizzaserrmal.fragments.PizzaDetailFragment"
         android:label="fragment_pizza_detail"
         tools:layout="@layout/fragment_pizza_detail" />
+    <fragment
+        tools:layout="@layout/fragment_non_veg_pizza"
+        android:id="@+id/nonVegPizzaFragment"
+        android:name="com.apjake.pizzaserrmal.fragments.NonVegPizzaFragment"
+        android:label="NonVegPizzaFragment" />
 </navigation>
