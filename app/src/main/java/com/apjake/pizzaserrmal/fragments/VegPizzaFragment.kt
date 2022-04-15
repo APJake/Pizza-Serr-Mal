@@ -41,7 +41,6 @@ class VegPizzaFragment : BaseFragment<VegPizzaViewModel, PizzaListEvent>() {
         binding = FragmentVegPizzaBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun injectViewModel(): VegPizzaViewModel = viewModelVeg
 
     override fun bind(event: PizzaListEvent) {

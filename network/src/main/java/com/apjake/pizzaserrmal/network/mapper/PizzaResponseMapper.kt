@@ -10,15 +10,19 @@ import javax.inject.Inject
 class PizzaResponseMapper @Inject constructor() : UniMapper<List<PizzaResponse>?, List<PizzaVO>> {
     override fun map(data: List<PizzaResponse>?): List<PizzaVO> {
         return data?.map { pizza ->
+            val price = pizza.price ?: 0
+            var priceRange = PizzaPrizeRange.CHEAP
+            if(price in 50..549) priceRange = PizzaPrizeRange.MEDIUM
+            else if(price >550) priceRange = PizzaPrizeRange.EXPENSIVE
             PizzaVO(
                 id = pizza.id.toString(),
                 name = pizza.name.orEmpty(),
                 isVeg = pizza.veg.orFalse(),
                 description = pizza.description.orEmpty(),
                 image = pizza.img.orEmpty(),
-                price = pizza.price.toString(),
+                price = price.toString(),
                 isBookmark = false,
-                range = PizzaPrizeRange.CHEAP
+                range = priceRange
             )
         }.orEmpty()
     }

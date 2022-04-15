@@ -4,4 +4,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorAccent">#FFC175</color>
+
+    <color name="list_cheap">#9C9C9C</color>
+    <color name="list_medium">#FAC49C</color>
+    <color name="list_expensive">#E8FF96</color>
 </resources>

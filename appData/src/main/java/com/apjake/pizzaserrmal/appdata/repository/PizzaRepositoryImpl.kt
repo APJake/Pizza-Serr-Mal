@@ -9,10 +9,18 @@ import javax.inject.Inject
 class PizzaRepositoryImpl @Inject constructor(private val pizzaNetworkDataSource: PizzaNetworkDataSource) :
     PizzaRepository {
     override fun getVegPizzaList(): Observable<List<PizzaVO>> {
-        return pizzaNetworkDataSource.getPizzaList()
+        return pizzaNetworkDataSource.getPizzaList().map { pizzaList ->
+            pizzaList.filter { pizza ->
+                pizza.isVeg
+            }
+        }
     }
 
     override fun getUnVegPizzaList(): Observable<List<PizzaVO>> {
-        TODO("Not yet implemented")
+        return pizzaNetworkDataSource.getPizzaList().map { pizzaList ->
+            pizzaList.filter { pizza ->
+                !pizza.isVeg
+            }
+        }
     }
 }
