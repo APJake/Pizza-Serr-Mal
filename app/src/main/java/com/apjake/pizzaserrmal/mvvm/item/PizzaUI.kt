@@ -1,8 +1,7 @@
 package com.apjake.pizzaserrmal.mvvm.item
 
 
-data class PizzaUI (
-    val cheapItem: PizzaItem,
-    val mediumItem: PizzaItem,
-    val expensiveItem: PizzaItem,
-)
+sealed class PizzaUI {
+    data class Header (val item : String) : PizzaUI()
+    data class Pizza (val item : PizzaItem) : PizzaUI()
+}

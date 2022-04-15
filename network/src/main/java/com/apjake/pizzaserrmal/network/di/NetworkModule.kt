@@ -45,7 +45,7 @@ abstract class NetworkModule {
                             .addHeader("X-RapidAPI-Host", "pizza-and-desserts.p.rapidapi.com")
                             .addHeader(
                                 "X-RapidAPI-Key",
-                                "23b553eff6msh5eb478a81adc259p190452jsn00fb7875d8d1"
+                                "50f4516edcmshdc7a5fad19e5b06p174665jsn43453f9bd0d5"
                             )
                             .build()
                     chain.proceed(request)

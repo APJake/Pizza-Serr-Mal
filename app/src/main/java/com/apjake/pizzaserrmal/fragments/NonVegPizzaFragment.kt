@@ -11,13 +11,14 @@ import com.apjake.pizzaserrmal.databinding.FragmentNonVegPizzaBinding
 import com.apjake.pizzaserrmal.databinding.FragmentVegPizzaBinding
 import com.apjake.pizzaserrmal.mvvm.event.PizzaListEvent
 import com.apjake.pizzaserrmal.mvvm.state.PizzaState
+import com.apjake.pizzaserrmal.mvvm.viewmodel.UnVegPizzaViewModel
 import com.apjake.pizzaserrmal.mvvm.viewmodel.VegPizzaViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NonVegPizzaFragment : BaseFragment<VegPizzaViewModel, PizzaListEvent>() {
+class NonVegPizzaFragment : BaseFragment<UnVegPizzaViewModel, PizzaListEvent>() {
 
-    private val viewModelVeg: VegPizzaViewModel by viewModels()
+    private val viewModelVeg: UnVegPizzaViewModel by viewModels()
     private lateinit var adapter: PizzaListAdapter
     private lateinit var binding: FragmentNonVegPizzaBinding
 
@@ -43,7 +44,7 @@ class NonVegPizzaFragment : BaseFragment<VegPizzaViewModel, PizzaListEvent>() {
         return binding.root
     }
 
-    override fun injectViewModel(): VegPizzaViewModel = viewModelVeg
+    override fun injectViewModel(): UnVegPizzaViewModel = viewModelVeg
 
     override fun bind(event: PizzaListEvent) {
         when (event) {

@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_regular_3x"
         android:paddingTop="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_medium_2"
         android:textColor="#333333"
         android:fontFamily="@font/optima_bold"
         android:paddingBottom="@dimen/margin_small"

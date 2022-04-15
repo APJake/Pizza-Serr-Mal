@@ -11,9 +11,12 @@ class PizzaResponseMapper @Inject constructor() : UniMapper<List<PizzaResponse>?
     override fun map(data: List<PizzaResponse>?): List<PizzaVO> {
         return data?.map { pizza ->
             val price = pizza.price ?: 0
-            var priceRange = PizzaPrizeRange.CHEAP
-            if(price in 50..549) priceRange = PizzaPrizeRange.MEDIUM
-            else if(price >550) priceRange = PizzaPrizeRange.EXPENSIVE
+            val priceRange = when {
+                price in 50..549 -> PizzaPrizeRange.MEDIUM
+                price > 550 -> PizzaPrizeRange.EXPENSIVE
+                else -> PizzaPrizeRange.CHEAP
+            }
+
             PizzaVO(
                 id = pizza.id.toString(),
                 name = pizza.name.orEmpty(),

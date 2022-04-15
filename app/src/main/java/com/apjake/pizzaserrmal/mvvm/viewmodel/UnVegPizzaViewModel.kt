@@ -17,16 +17,18 @@ class UnVegPizzaViewModel @Inject constructor(
     private val getUnVegPizzaListUseCase: GetUnVegPizzaListUseCase,
     private val pizzaItemMapper: PizzaItemMapper
 
-): BaseViewModel<PizzaListEvent>() {
+) : BaseViewModel<PizzaListEvent>() {
 
     private val _pizzaListState = MutableLiveData<PizzaState>()
     val pizzaLisState: LiveData<PizzaState> = _pizzaListState
 
-    fun getPizzaList(){
+    fun getPizzaList() {
         getUnVegPizzaListUseCase()
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ _pizzaListState.value = PizzaState.Success(pizzaItemMapper.map(it.sortedBy { it.price }))
-            },{
+            .subscribe({
+                _pizzaListState.value =
+                    PizzaState.Success(pizzaItemMapper.map(it))
+            }, {
                 emit(PizzaListEvent.Error(it.message.orEmpty()))
             })
             .addTo(dispose)

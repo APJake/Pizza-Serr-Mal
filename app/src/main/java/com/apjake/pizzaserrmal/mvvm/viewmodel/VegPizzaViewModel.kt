@@ -16,7 +16,6 @@ import javax.inject.Inject
 @HiltViewModel
 class VegPizzaViewModel @Inject constructor(
     private val getVegPizzaListUseCase: GetVegPizzaListUseCase,
-
     private val pizzaItemMapper: PizzaItemMapper
 ) : BaseViewModel<PizzaListEvent>() {
 
@@ -26,7 +25,7 @@ class VegPizzaViewModel @Inject constructor(
     fun getPizzaList() {
         getVegPizzaListUseCase()
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ _pizzaListState.value = PizzaState.Success(pizzaItemMapper.map(it.sortedBy { it.price })) }, {
+            .subscribe({ _pizzaListState.value = PizzaState.Success(pizzaItemMapper.map(it)) }, {
                 emit(PizzaListEvent.Error(it.message.orEmpty()))
             })
             .addTo(dispose)
