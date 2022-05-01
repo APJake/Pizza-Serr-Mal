@@ -23,4 +23,14 @@ class PizzaRepositoryImpl @Inject constructor(private val pizzaNetworkDataSource
             }
         }
     }
+
+    override fun getPizzaDetail(pizzaId: String): Observable<PizzaVO> {
+        return pizzaNetworkDataSource.getPizzaList().filter { pizzaList ->
+            pizzaList.find { pizzaVO ->
+                pizzaVO.id == pizzaId
+            } != null
+        }.map { list->
+            list[0]
+        }
+    }
 }

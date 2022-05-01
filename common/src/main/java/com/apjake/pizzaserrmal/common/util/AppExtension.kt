@@ -25,3 +25,5 @@ fun Boolean?.orFalse(): Boolean = this ?: false
 fun Disposable.addDisposable(disposable: CompositeDisposable) {
     disposable.add(this)
 }
+
+fun Boolean.toVegString(): String = if(this) "Vegetarian" else "Non-Vegetarian"

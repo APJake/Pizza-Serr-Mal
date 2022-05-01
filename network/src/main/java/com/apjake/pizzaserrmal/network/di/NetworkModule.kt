@@ -4,6 +4,7 @@ import android.content.Context
 import com.apjake.pizzaserrmal.appdata.PizzaNetworkDataSource
 import com.apjake.pizzaserrmal.network.datasource.PizzaNetworkDataSourceImpl
 import com.apjake.pizzaserrmal.network.service.PizzaApi
+import com.apjake.pizzaserrmal.network.service.PizzaMockInterceptor
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import dagger.Binds
 import dagger.Module
@@ -39,6 +40,7 @@ abstract class NetworkModule {
         fun provideRetrofit(@ApplicationContext context: Context): Retrofit {
             val client = OkHttpClient.Builder()
                 .addInterceptor(ChuckerInterceptor(context))
+                .addInterceptor(PizzaMockInterceptor())
                 .addInterceptor(Interceptor { chain ->
                     val request: Request =
                         chain.request().newBuilder()
