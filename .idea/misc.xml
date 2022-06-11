@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2346014492753623" />
+=======
         <entry key="../../Library/Android/sdk/ndk/21.1.6352462/caches/transforms-3/356e9ba54d02d4f62b341e20ec0fc392/transformed/jetified-appcompat-resources-1.4.1/res/drawable/abc_vector_test.xml" value="0.202" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_veg_pizza.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/item_view_pizza.xml" value="0.375" />
+>>>>>>> 05b08875243c40660e4d64b7b9dd9612509e9c33
       </map>
     </option>
   </component>

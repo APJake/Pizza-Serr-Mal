@@ -1,14 +1,16 @@
 package com.apjake.pizzaserrmal.adapter.diffutil
 
 import androidx.recyclerview.widget.DiffUtil
-import com.compose.domain.models.PizzaVO
+import com.apjake.pizzaserrmal.domain.models.PizzaVO
+import com.apjake.pizzaserrmal.mvvm.item.PizzaUI
 
-object PizzaDiffUtil : DiffUtil.ItemCallback<PizzaVO>() {
-    override fun areItemsTheSame(oldItem: PizzaVO, newItem: PizzaVO): Boolean {
-        return oldItem.id == newItem.id
+object PizzaDiffUtil : DiffUtil.ItemCallback<PizzaUI>() {
+    override fun areItemsTheSame(oldItem: PizzaUI, newItem: PizzaUI): Boolean {
+        return false
     }
 
-    override fun areContentsTheSame(oldItem: PizzaVO, newItem: PizzaVO): Boolean {
-        return oldItem == newItem
+    override fun areContentsTheSame(oldItem: PizzaUI, newItem: PizzaUI): Boolean {
+        return false
     }
+
 }

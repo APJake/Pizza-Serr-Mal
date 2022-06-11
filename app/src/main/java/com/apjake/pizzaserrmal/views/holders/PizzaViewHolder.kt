@@ -1,19 +1,25 @@
 package com.apjake.pizzaserrmal.views.holders
 
 import com.apjake.pizzaserrmal.databinding.ItemViewPizzaBinding
-import com.compose.common.base.BaseViewHolder
-import com.compose.common.util.prefixDollar
-import com.compose.common.util.show
-import com.compose.domain.models.PizzaVO
+import com.apjake.pizzaserrmal.common.base.BaseViewHolder
+import com.apjake.pizzaserrmal.common.util.prefixDollar
+import com.apjake.pizzaserrmal.common.util.show
+import com.apjake.pizzaserrmal.domain.models.PizzaVO
+import com.apjake.pizzaserrmal.mvvm.item.PizzaUI
 
 class PizzaViewHolder(private val binding: ItemViewPizzaBinding) :
-    BaseViewHolder<PizzaVO>(binding.root) {
+    BaseViewHolder<PizzaUI>(binding.root) {
 
-    override fun bind(item: PizzaVO) {
+    override fun bind(item: PizzaUI) {
         super.bind(item)
-        binding.ivPizza.show(item.image)
-        binding.tvPrice.text = item.price.prefixDollar()
-        binding.tvPizzaName.text = item.name
-        binding.tvDesc.text = item.description
+        if (item is PizzaUI.Pizza) {
+            with(binding) {
+                ivPizza.show(item.item.pizza.image)
+                tvPrice.text = item.item.pizza.price.prefixDollar()
+                tvPizzaName.text = item.item.pizza.name
+                tvDesc.text = item.item.pizza.description
+            }
+        }
+
     }
 }

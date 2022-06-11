@@ -4,4 +4,9 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">20%</item>
     </style>
+
+    <style name="CutImageShape" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">10%</item>
+    </style>
 </resources>

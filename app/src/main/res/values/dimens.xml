@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="dimen_pizza_image">60dp</dimen>
+    <dimen name="dimen_pizza_image_detail">220dp</dimen>
+    <dimen name="dimen_pizza_image_large">80dp</dimen>
 </resources>
